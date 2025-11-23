@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #000000;
+    --color-secondary: #FFD700;
+    --color-accent: #00FF94;
+    --color-danger: #FF3366;
+    --color-info: #00D4FF;
+    --color-warning: #FFB800;
+    --shadow-brutal: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+    --shadow-brutal-lg: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+    --shadow-brutal-hover: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  * {
+    @apply border-black;
+  }
+
+  body {
+    @apply bg-white text-black font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black tracking-tight;
+  }
+
+  h1 {
+    @apply text-5xl md:text-7xl;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-3xl md:text-4xl;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .btn-brutal {
+    @apply px-6 py-3 border-4 border-black font-black uppercase tracking-wider
+           transition-all duration-150 active:translate-x-1 active:translate-y-1;
+    box-shadow: var(--shadow-brutal);
+  }
+
+  .btn-brutal:hover {
+    box-shadow: var(--shadow-brutal-hover);
+    @apply translate-x-0.5 translate-y-0.5;
+  }
+
+  .btn-brutal:active {
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  .card-brutal {
+    @apply border-4 border-black p-6 bg-white;
+    box-shadow: var(--shadow-brutal);
+  }
+
+  .card-brutal-lg {
+    @apply border-4 border-black p-8 bg-white;
+    box-shadow: var(--shadow-brutal-lg);
+  }
+
+  .input-brutal {
+    @apply px-4 py-3 border-4 border-black font-bold
+           focus:outline-none focus:ring-0 focus:border-black
+           transition-all duration-150;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  .input-brutal:focus {
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+    @apply translate-x-0.5 translate-y-0.5;
+  }
+
+  .tag-brutal {
+    @apply inline-block px-3 py-1 border-2 border-black font-bold text-sm uppercase;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pattern-dots {
+  background-image: radial-gradient(circle, #000 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(#000 2px, transparent 2px),
+    linear-gradient(90deg, #000 2px, transparent 2px);
+  background-size: 50px 50px;
+}
+
+.rotate-3d {
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.3s ease;
+}
+
+.rotate-3d:hover {
+  transform: perspective(1000px) rotateY(0deg);
+}
